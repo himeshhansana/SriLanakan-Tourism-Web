@@ -71,14 +71,14 @@ const destinationData: DestinationData = {
 
 const Destination = () => {
   const { id } = useParams<{ id: string }>();
-  
+
   // Scroll to top on component mount
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [id]);
 
   const destination = destinationData[id as string];
-  
+
   if (!destination) {
     return (
       <div className="container px-4 py-16 mx-auto text-center">
@@ -88,8 +88,8 @@ const Destination = () => {
           transition={{ duration: 0.5 }}
         >
           <h1 className="mb-4 text-3xl font-bold">Destination not found</h1>
-          <Link 
-            to="/" 
+          <Link
+            to="/"
             className="text-green-600 hover:text-green-700"
           >
             Return to Home
@@ -122,7 +122,7 @@ const Destination = () => {
   };
 
   return (
-    <motion.div 
+    <motion.div
       className="w-full"
       initial="hidden"
       animate="visible"
@@ -134,7 +134,7 @@ const Destination = () => {
       }}>
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
         <div className="absolute inset-0 flex items-center justify-center">
-          <motion.div 
+          <motion.div
             className="text-center"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -155,23 +155,23 @@ const Destination = () => {
       <section className="py-16">
         <div className="container px-4 mx-auto">
           <div className="max-w-4xl mx-auto">
-            <motion.h2 
+            <motion.h2
               className="mb-6 text-3xl font-bold"
               variants={itemVariants}
             >
               Overview
             </motion.h2>
-            <motion.p 
+            <motion.p
               className="mb-8 text-lg leading-relaxed text-gray-600"
               variants={itemVariants}
             >
               {destination.description}
             </motion.p>
-            <motion.div 
+            <motion.div
               className="grid grid-cols-1 gap-6 mb-8 md:grid-cols-3"
               variants={containerVariants}
             >
-              <motion.div 
+              <motion.div
                 className="p-4 rounded-lg bg-green-50"
                 variants={itemVariants}
                 whileHover={{ y: -5 }}
@@ -180,7 +180,7 @@ const Destination = () => {
                 <h3 className="mb-1 font-bold">Best Time to Visit</h3>
                 <p className="text-gray-600">{destination.bestTimeToVisit}</p>
               </motion.div>
-              <motion.div 
+              <motion.div
                 className="p-4 rounded-lg bg-green-50"
                 variants={itemVariants}
                 whileHover={{ y: -5 }}
@@ -189,7 +189,7 @@ const Destination = () => {
                 <h3 className="mb-1 font-bold">Recommended Duration</h3>
                 <p className="text-gray-600">2-3 days</p>
               </motion.div>
-              <motion.div 
+              <motion.div
                 className="p-4 rounded-lg bg-green-50"
                 variants={itemVariants}
                 whileHover={{ y: -5 }}
@@ -208,28 +208,28 @@ const Destination = () => {
       {/* Attractions */}
       <section className="py-16 bg-gray-50">
         <div className="container px-4 mx-auto">
-          <motion.h2 
+          <motion.h2
             className="mb-12 text-3xl font-bold text-center"
             variants={itemVariants}
           >
             Top Attractions
           </motion.h2>
-          <motion.div 
+          <motion.div
             className="grid grid-cols-1 gap-8 md:grid-cols-3"
             variants={containerVariants}
           >
             {destination.attractions.map((attraction, index) => (
-              <motion.div 
-                key={index} 
+              <motion.div
+                key={index}
                 className="overflow-hidden bg-white rounded-lg shadow-md"
                 variants={itemVariants}
                 whileHover={{ scale: 1.03 }}
               >
                 <div className="h-48 overflow-hidden">
-                  <img 
-                    src={attraction.image} 
-                    alt={attraction.name} 
-                    className="object-cover w-full h-full" 
+                  <img
+                    src={attraction.image}
+                    alt={attraction.name}
+                    className="object-cover w-full h-full"
                   />
                 </div>
                 <div className="p-6">
@@ -246,19 +246,19 @@ const Destination = () => {
       <section className="py-16">
         <div className="container px-4 mx-auto">
           <div className="max-w-4xl mx-auto">
-            <motion.h2 
+            <motion.h2
               className="mb-8 text-3xl font-bold"
               variants={itemVariants}
             >
               Things to Do
             </motion.h2>
-            <motion.div 
+            <motion.div
               className="grid grid-cols-1 gap-6 md:grid-cols-2"
               variants={containerVariants}
             >
               {destination.activities.map((activity, index) => (
-                <motion.div 
-                  key={index} 
+                <motion.div
+                  key={index}
                   className="flex items-start"
                   variants={itemVariants}
                   whileHover={{ x: 5 }}
@@ -278,17 +278,17 @@ const Destination = () => {
       <section className="py-16 bg-gray-50">
         <div className="container px-4 mx-auto">
           <div className="max-w-4xl mx-auto">
-            <motion.h2 
+            <motion.h2
               className="mb-8 text-3xl font-bold"
               variants={itemVariants}
             >
               Where to Stay
             </motion.h2>
-            <motion.div 
+            <motion.div
               className="space-y-6"
               variants={containerVariants}
             >
-              <motion.div 
+              <motion.div
                 className="p-6 bg-white rounded-lg shadow-md"
                 variants={itemVariants}
                 whileHover={{ scale: 1.01 }}
@@ -303,7 +303,7 @@ const Destination = () => {
                   ))}
                 </ul>
               </motion.div>
-              <motion.div 
+              <motion.div
                 className="p-6 bg-white rounded-lg shadow-md"
                 variants={itemVariants}
                 whileHover={{ scale: 1.01 }}
@@ -318,7 +318,7 @@ const Destination = () => {
                   ))}
                 </ul>
               </motion.div>
-              <motion.div 
+              <motion.div
                 className="p-6 bg-white rounded-lg shadow-md"
                 variants={itemVariants}
                 whileHover={{ scale: 1.01 }}
@@ -341,13 +341,13 @@ const Destination = () => {
       {/* CTA Section */}
       <section className="py-16 text-white bg-green-700">
         <div className="container px-4 mx-auto text-center">
-          <motion.h2 
+          <motion.h2
             className="mb-4 text-3xl font-bold"
             variants={itemVariants}
           >
             Ready to Visit {destination.name}?
           </motion.h2>
-          <motion.p 
+          <motion.p
             className="mb-8 text-xl"
             variants={itemVariants}
           >
@@ -357,8 +357,8 @@ const Destination = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Link 
-              to="/contact" 
+            <Link
+              to="/contact"
               className="inline-block px-8 py-3 font-bold text-green-700 transition duration-300 bg-white rounded-lg hover:bg-gray-100"
             >
               Contact Us
